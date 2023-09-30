@@ -1,0 +1,38 @@
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__logo {
+    width: 200px;
+    background-color: #000;
+    color: #fff;
+    
+}
+
+.navbar__links-wrapper {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__link {
+    cursor: pointer;
+}
+
+.navbar__profile {
+    background-color: #000;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.navbar__profile-picreplace {
+    color: #fff;
+}
