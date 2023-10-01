@@ -1,0 +1,18 @@
+.application__submitted {
+    background-color: rgba(225, 225, 225, 0.3);
+    width: 450px;
+    max-height: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.4);
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.application__submitted-title {
+    text-align: center;    
+    border-bottom: solid 2px #000 ;
+    height: 40px;
+    margin: 0;
+    padding: 20px 0px;
+}
