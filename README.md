@@ -1,8 +1,13 @@
-# React + Vite
+# Job Application Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Overview:
 
-Currently, two official plugins are available:
+- An application designed to help keep track of your job applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### COMING SOON - Features:
+
+- Add a new job you've applied for
+- Click button to move job application information to new box (ex: Denied, Interview, Accepted)
+- Delete job application and it's related information from profile
+- Write notes about job application
+- Store documents related to job application
