@@ -1,54 +1,62 @@
 .job-wrapper {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    overflow: scroll;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: scroll;
 }
-
 
 .job {
-    margin: 10px;
-    border-radius: 10px;
-    border: solid 1px #666;
-    min-height: 150px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-around;
+  margin: 10px;
+  border-radius: 10px;
+  border: solid 1px #666;
+  min-height: 150px;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
 }
 
-.job__info-wrapper{}
-
-.job-company__title{
-    cursor: pointer;
+.job__info-wrapper {
 }
 
-.job-position{}
+.job-company__title {
+  cursor: pointer;
+}
 
-.job-application__submission-date{}
+.job-position {
+}
+
+.job-id {
+}
+
+.job-application__submission-date {
+}
 
 .job__buttons-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.job__buttons{
-    border: none;
-    background-color: #3a86ff;
-    color: #fff;
-    width: 100px;
-    height: 25px;
-    border-radius: 8px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.job__buttons {
+  border: none;
+  background-color: #3a86ff;
+  color: #fff;
+  width: 100px;
+  height: 25px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .job__buttons:hover {
-    background-color: #000080;
+  background-color: #000080;
 }
 
-#job-denied{}
+#job-denied {
+}
 
-#job-interview{}
+#job-interview {
+}
 
-#job-notes{}
+#job-notes {
+}

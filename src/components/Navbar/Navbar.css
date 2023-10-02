@@ -1,38 +1,38 @@
-
 .navbar {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
 }
 
 .navbar__logo {
-    width: 200px;
-    background-color: #000;
-    color: #fff;
-    
+  width: 300px;
+  background-color: #000;
+  color: #fff;
 }
 
 .navbar__links-wrapper {
-    width: 30%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .navbar__link {
-    cursor: pointer;
+  color: #fff;
+  cursor: pointer;
 }
 
 .navbar__profile {
-    background-color: #000;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    cursor: pointer;
+  background-color: #fff;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
 }
 
 .navbar__profile-picreplace {
-    color: #fff;
+  color: #000;
 }

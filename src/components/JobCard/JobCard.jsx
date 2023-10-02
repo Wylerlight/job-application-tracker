@@ -9,6 +9,7 @@ export default function JobCard() {
             <h3 className="job-company__title">Insert Company Name</h3>
           </a>
           <p className="job-position">Insert Position</p>
+          <p className="job-id">Insert Job ID</p>
           <p className="job-application__submission-date">
             Insert date applied
           </p>
