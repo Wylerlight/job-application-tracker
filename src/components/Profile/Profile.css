@@ -1,7 +1,8 @@
 .profile {
   background-color: bisque;
   height: 400px;
-  width: 250px;
+  width: 15%;
+  min-width: 225px;
   display: flex;
   justify-content: center;
 }
