@@ -6,43 +6,49 @@ import SubmittedApplication from '../SubmittedApplication/SubmittedApplication';
 import DeniedApplications from '../DeniedApplications/DeniedApplications';
 import { useState } from 'react';
 
-export default function ApplicationSection({ applications }) {
+export default function ApplicationSection({
+  applications,
+  currentUser,
+  isLoggedIn,
+  handleUpdateJobAppStatus,
+  handleDeleteJobApplication,
+}) {
   const applicationArr = applications;
-  const appGroups = Object.groupBy(applicationArr, ({ status }) => status);
+  // const appGroups = Object.groupBy(applicationArr, ({ status }) => status);
 
-  const { applied, denied, interview } = appGroups;
+  // const { applied, denied, interview } = appGroups;
 
-  const [submitApp, setSubmitApp] = useState(applied);
-  const [deniedApp, setDeniedApp] = useState(denied);
-  const [interviewApp, setInterviewApp] = useState(interview);
+  const [submitApp, setSubmitApp] = useState(applicationArr);
 
-  /* Handler functions */
-
-  const handleApplicationUpdate = (item) => {
-    console.log(item.status);
-    console.log('denied button clicked');
-  };
+  //Temporary
+  const [deniedApp, setDeniedApp] = useState([]);
+  const [interviewApp, setInterviewApp] = useState([]);
 
   return (
     <section className="application__section">
       <JobCard title={'Submitted Applications'}>
         {submitApp.map((apps) => {
+          const { _id, name, position, jobId, date } = apps;
+
+          let newDate = new Date(date).toLocaleDateString();
+          const newAppsProp = { _id, name, position, jobId, newDate };
           return (
             <SubmittedApplication
-              key={apps.id}
-              apps={apps}
-              handleApplicationUpdate={handleApplicationUpdate}
+              key={apps._id}
+              apps={newAppsProp}
+              handleUpdateJobAppStatus={handleUpdateJobAppStatus}
+              handleDeleteJobApplication={handleDeleteJobApplication}
             />
           );
         })}
       </JobCard>
       <JobCard title={'Interviews'}>
-        {interview.map((apps) => {
+        {interviewApp.map((apps) => {
           return <InterviewApplications key={apps.id} apps={apps} />;
         })}
       </JobCard>
       <JobCard title={'Denied Applications'}>
-        {denied.map((apps) => {
+        {deniedApp.map((apps) => {
           return <DeniedApplications key={apps.id} apps={apps} />;
         })}
       </JobCard>

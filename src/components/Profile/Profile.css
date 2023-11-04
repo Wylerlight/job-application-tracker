@@ -1,18 +1,22 @@
 .profile {
-  background-color: bisque;
-  height: 400px;
+  background-color: #000;
   width: 15%;
   min-width: 225px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
 }
 
-.profile-new_application-button {
-  width: 150px;
-  height: 35px;
+.profile__button {
+  width: 200px;
+  height: 40px;
   font-size: 16px;
-  border: none;
-  background-color: #3a86ff;
+  border: solid 3px #59a8a2;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 1px #fff;
+  background-color: #000;
   color: #fff;
   border-radius: 8px;
   cursor: pointer;
@@ -20,6 +24,42 @@
   transition: 0.3s ease-in-out;
 }
 
-.profile-new_application-button:hover {
-  background-color: #000080;
+.profile__button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Sidebar Styles                               */
+/* -------------------------------------------------------------------------- */
+
+.sidebar__avatar-wrapper {
+  width: 200px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__avatar-picture {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  background-color: #000;
+  display: flex;
+
+  justify-content: center;
+}
+
+.sidebar__avatar-name {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  margin: 10px 0px;
+  width: 100%;
+  font-size: 40px;
+}
+
+.sidebar__user-wrapper {
+  display: flex;
+  flex-direction: column;
 }

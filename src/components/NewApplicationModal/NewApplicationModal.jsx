@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import "./NewApplicationModal.css";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useState } from 'react';
+import './NewApplicationModal.css';
+import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
 export default function NewApplicationModal({
   isOpen,
   addNewJobApp,
   closeModal,
 }) {
-  const [companyName, setCompanyName] = useState("");
-  const [position, setPosition] = useState("");
-  const [jobId, setJobId] = useState("");
+  const [name, setName] = useState('');
+  const [position, setPosition] = useState('');
+  const [jobId, setJobId] = useState('');
 
   const handleNameChange = (e) => {
-    setCompanyName(e.target.value);
+    setName(e.target.value);
   };
   const handlePositionChange = (e) => {
     setPosition(e.target.value);
@@ -25,7 +25,7 @@ export default function NewApplicationModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewJobApp();
+    addNewJobApp({ name, position, jobId, status: 'applied' });
   };
 
   return (
@@ -45,7 +45,7 @@ export default function NewApplicationModal({
           name="name"
           type="text"
           placeholder="Company Name"
-          value={companyName}
+          value={name}
           onChange={handleNameChange}
           required
         />
@@ -78,11 +78,6 @@ export default function NewApplicationModal({
           value={jobId}
           onChange={handleJobIdChange}
         />
-      </div>
-      <span className=""></span>
-      <div className="modal__input">
-        Date Applied:
-        <input id="modal__input-date" type="date" />
       </div>
       <span className=""></span>
     </ModalWithForm>

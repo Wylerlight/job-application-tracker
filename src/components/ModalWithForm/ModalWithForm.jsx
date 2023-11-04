@@ -1,14 +1,14 @@
-/* eslint-disable react/prop-types */
-import "./ModalWithForm.css";
+import './ModalWithForm.css';
 
 export default function ModalWithForm({
   children,
   title,
   name,
   buttonText,
+  buttonRedirectText,
+  redirect,
   onClose,
   onSubmit,
-  // eslint-disable-next-line no-unused-vars
   isOpen,
 }) {
   return (
@@ -21,6 +21,9 @@ export default function ModalWithForm({
           <span className="modal__error"></span>
           <button type="submit" className="modal__submit">
             {buttonText}
+          </button>
+          <button type="button" className="modal__redirect" onClick={redirect}>
+            {buttonRedirectText}
           </button>
         </form>
       </div>
