@@ -4,7 +4,6 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './Main.css';
 import Profile from '../Profile/Profile';
 import ApplicationSection from '../ApplicationSection/ApplicationSection';
-import { Navigate } from 'react-router';
 
 const Main = ({
   openModal,

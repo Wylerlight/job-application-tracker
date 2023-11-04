@@ -13,13 +13,6 @@ export default function ApplicationSection({
   handleUpdateJobAppStatus,
   handleDeleteJobApplication,
 }) {
-  const applicationArr = applications;
-  // const appGroups = Object.groupBy(applicationArr, ({ status }) => status);
-
-  // const { applied, denied, interview } = appGroups;
-
-  const [submitApp, setSubmitApp] = useState(applicationArr);
-
   //Temporary
   const [deniedApp, setDeniedApp] = useState([]);
   const [interviewApp, setInterviewApp] = useState([]);
@@ -27,7 +20,7 @@ export default function ApplicationSection({
   return (
     <section className="application__section">
       <JobCard title={'Submitted Applications'}>
-        {submitApp.map((apps) => {
+        {applications.map((apps) => {
           const { _id, name, position, jobId, date } = apps;
 
           let newDate = new Date(date).toLocaleDateString();
