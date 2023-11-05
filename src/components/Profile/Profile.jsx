@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './Profile.css';
 
-const Profile = ({ openModal, handleUserLogout, currentUser, verifyToken }) => {
+const Profile = ({ openModal, handleUserLogout, currentUser }) => {
   return (
     <section className="profile">
       <div className="sidebar__avatar-wrapper">

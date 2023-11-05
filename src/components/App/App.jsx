@@ -211,7 +211,6 @@ export default function App() {
                     applications={applications}
                     isLoggedIn={isLoggedIn}
                     handleUserLogout={handleUserLogout}
-                    verifyToken={verifyToken}
                     handleUpdateJobAppStatus={handleUpdateJobAppStatus}
                     handleDeleteJobApplication={handleDeleteJobApplication}
                   />

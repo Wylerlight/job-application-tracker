@@ -10,7 +10,6 @@ const Main = ({
   applications,
   isLoggedIn,
   handleUserLogout,
-  verifyToken,
   handleUpdateJobAppStatus,
   handleDeleteJobApplication,
 }) => {
@@ -22,7 +21,6 @@ const Main = ({
         openModal={openModal}
         handleUserLogout={handleUserLogout}
         currentUser={currentUser}
-        verifyToken={verifyToken}
       />
 
       <ApplicationSection

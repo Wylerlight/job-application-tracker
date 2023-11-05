@@ -4,7 +4,6 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 const ProtectedRoutes = () => {
   const { isLoggedIn } = useContext(CurrentUserContext);
-  console.log(isLoggedIn);
   return isLoggedIn ? <Outlet /> : <Navigate to="/" />;
 };
 
