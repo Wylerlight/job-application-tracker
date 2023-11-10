@@ -30,8 +30,6 @@ import {
 } from "../../utils/api";
 import ProtectedRoute from "../../utils/ProtectedRoute";
 
-// import { submittedApplication } from '../../constants/constants';
-
 export default function App() {
   // React Hooks
   const [modalOpened, setModalOpened] = useState("");

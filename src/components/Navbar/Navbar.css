@@ -5,16 +5,17 @@
 }
 
 .navbar__logo {
-  width: 300px;
+  width: 500px;
   background-color: #000;
   color: #fff;
 }
 
 .navbar__links-wrapper {
-  width: 30%;
+  margin-right: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 50px;
 }
 
 .navbar__link {
@@ -39,13 +40,18 @@
 
 .avatar__name {
   color: #fff;
+  font-size: 40px;
+  text-shadow:
+    1px 1px 2px red,
+    0 0 1em blue,
+    0 0 0.2em blue;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                         Sign in and Log In Section                         */
 /* -------------------------------------------------------------------------- */
 .nav {
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
   background-color: #000;
   color: #fff;
@@ -56,10 +62,15 @@
   border-radius: 10px;
 }
 
+.avatar__nav {
+  color: #fff;
+  font-size: 25px;
+}
+
 .avatar__picture {
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
 

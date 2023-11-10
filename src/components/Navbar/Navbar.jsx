@@ -17,6 +17,12 @@ export default function Navbar({ openModal }) {
       <div className="navbar__links-wrapper">
         {isLoggedIn ? (
           <>
+            <Link to="/">
+              <p className="avatar__nav">Home</p>
+            </Link>
+            <Link to="/profile">
+              <p className="avatar__nav">Profile</p>
+            </Link>
             <p className="avatar__name">
               {currentUser ? currentUser.name : "No Name"}
             </p>
