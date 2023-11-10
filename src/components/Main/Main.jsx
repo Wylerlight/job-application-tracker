@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-import './Main.css';
-import Profile from '../Profile/Profile';
-import ApplicationSection from '../ApplicationSection/ApplicationSection';
+import "./Main.css";
+import Profile from "../Profile/Profile";
+import ApplicationSection from "../ApplicationSection/ApplicationSection";
+import Preloader from "../Preloader/Preloader";
 
 const Main = ({
   openModal,
@@ -12,6 +13,7 @@ const Main = ({
   handleUserLogout,
   handleUpdateJobAppStatus,
   handleDeleteJobApplication,
+  isLoading,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
 

@@ -1,10 +1,7 @@
-import './ApplicationSection.css';
-import JobCard from '../JobCard/JobCard';
+import React from "react";
+import "./ApplicationSection.css";
 
-import InterviewApplications from '../InterviewApplications/InterviewApplications';
-import SubmittedApplication from '../SubmittedApplication/SubmittedApplication';
-import DeniedApplications from '../DeniedApplications/DeniedApplications';
-import { useState } from 'react';
+import Table from "../Table/Table";
 
 export default function ApplicationSection({
   applications,
@@ -13,38 +10,23 @@ export default function ApplicationSection({
   handleUpdateJobAppStatus,
   handleDeleteJobApplication,
 }) {
-  //Temporary
-  const [deniedApp, setDeniedApp] = useState([]);
-  const [interviewApp, setInterviewApp] = useState([]);
-
+  const statusArray = ["Applied", "Denied", "Interview"];
   return (
     <section className="application__section">
-      <JobCard title={'Submitted Applications'}>
-        {applications.map((apps) => {
-          const { _id, name, position, jobId, date } = apps;
-
-          let newDate = new Date(date).toLocaleDateString();
-          const newAppsProp = { _id, name, position, jobId, newDate };
-          return (
-            <SubmittedApplication
-              key={apps._id}
-              apps={newAppsProp}
-              handleUpdateJobAppStatus={handleUpdateJobAppStatus}
-              handleDeleteJobApplication={handleDeleteJobApplication}
+      {statusArray.map((category) => {
+        return (
+          <React.Fragment key={category}>
+            <Table
+              category={category}
+              applications={applications.filter(
+                (item) => item.status === category
+              )}
+              moveItem={handleUpdateJobAppStatus}
+              deleteApp={handleDeleteJobApplication}
             />
-          );
-        })}
-      </JobCard>
-      <JobCard title={'Interviews'}>
-        {interviewApp.map((apps) => {
-          return <InterviewApplications key={apps.id} apps={apps} />;
-        })}
-      </JobCard>
-      <JobCard title={'Denied Applications'}>
-        {deniedApp.map((apps) => {
-          return <DeniedApplications key={apps.id} apps={apps} />;
-        })}
-      </JobCard>
+          </React.Fragment>
+        );
+      })}
     </section>
   );
 }

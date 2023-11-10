@@ -9,19 +9,11 @@
 }
 
 .job__info-wrapper {
+  min-width: 200px;
 }
 
 .job-company__title {
   cursor: pointer;
-}
-
-.job-position {
-}
-
-.job-id {
-}
-
-.job-application__submission-date {
 }
 
 .job__buttons-wrapper {
@@ -46,14 +38,18 @@
   background-color: #000080;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                Button colors                               */
-/* -------------------------------------------------------------------------- */
-
-.interview-btn {
+#interview-btn {
   background-color: green;
 }
 
-.denied-btn {
+#interview-btn:hover {
+  background-color: rgb(0, 57, 0);
+}
+
+#denied-btn {
   background-color: brown;
+}
+
+#denied-btn:hover {
+  background-color: rgb(92, 24, 24);
 }

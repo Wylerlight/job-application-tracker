@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-import './Navbar.css';
-import logo from '../../assets/facebook_cover_photo_2.png';
+import "./Navbar.css";
+import logo from "../../assets/facebook_cover_photo_2.png";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export default function Navbar({ openModal, isLoggedIn }) {
-  const { currentUser } = useContext(CurrentUserContext);
+export default function Navbar({ openModal }) {
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <section className="navbar">
@@ -18,7 +18,7 @@ export default function Navbar({ openModal, isLoggedIn }) {
         {isLoggedIn ? (
           <>
             <p className="avatar__name">
-              {currentUser ? currentUser.name : 'No Name'}
+              {currentUser ? currentUser.name : "No Name"}
             </p>
 
             <Link to="/profile">
@@ -40,14 +40,14 @@ export default function Navbar({ openModal, isLoggedIn }) {
             <button
               className="nav avatar__sign-up"
               type="button"
-              onClick={() => openModal('register-modal-opened')}
+              onClick={() => openModal("register-modal-opened")}
             >
               Sign Up
             </button>
             <button
               className="nav avatar__log-in"
               type="button"
-              onClick={() => openModal('login-modal-opened')}
+              onClick={() => openModal("login-modal-opened")}
             >
               Log In
             </button>

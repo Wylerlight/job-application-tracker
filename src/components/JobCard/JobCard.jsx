@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-
-import './JobCard.css';
+import "./JobCard.css";
 
 export default function JobCard({ children, title }) {
   return (

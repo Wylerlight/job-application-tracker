@@ -1,11 +1,11 @@
-import './Header.css';
+import "./Header.css";
 
-export default function Header() {
+export default function Header({ submitted, interview, denied }) {
   return (
     <div className="header">
-      <div>Applications Submitted: {'enter number here'}</div>
-      <div>Interviews Pending: {'enter number here'}</div>
-      <div>Applications Denied: {'enter number here'}</div>
+      <div>Applications Submitted: {submitted ? submitted : 0}</div>
+      <div>Interviews Pending: {interview ? interview : 0}</div>
+      <div>Applications Denied: {denied ? denied : 0}</div>
     </div>
   );
 }
