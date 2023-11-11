@@ -12,10 +12,14 @@ export default function Item({ apps, moveItem, deleteApp }) {
         <a>
           <h3 className="job-company__title">{name}</h3>
         </a>
-        <p className="job-position">Position: {position}</p>
-        <p className="job-id">Job ID: {jobId}</p>
+        <p className="job-position">
+          Position: <p className="job-position-alt">{position}</p>
+        </p>
+        <p className="job-id">
+          Job ID: <p className="job-position-alt">{jobId}</p>
+        </p>
         <p className="job-application__submission-date">
-          Date Applied: {newDate}
+          Date Applied: <p className="job-position-alt">{newDate}</p>
         </p>
       </div>
       <div className="job__buttons-wrapper">

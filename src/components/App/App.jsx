@@ -13,6 +13,7 @@ import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import LandingPage from "../LandingPage/LandingPage";
 import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 
 /* Modal Forms */
 import NewApplicationModal from "../NewApplicationModal/NewApplicationModal";
@@ -38,23 +39,11 @@ export default function App() {
   const [applications, setApplications] = useState([]);
   ////////
 
-  const [submitted, setSubmitted] = useState(0);
-  const [interview, setInterview] = useState(0);
-  const [denied, setDenied] = useState(0);
-
-  ///////
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   /////////////////////////////////////////////////////
-
-  // Calculate category occurrences
-  const statusOccurrences = applications.reduce((acc, item) => {
-    acc[item.status] = (acc[item.status] || 0) + 1;
-    return acc;
-  }, {});
 
   // Use Effects
   useEffect(() => {
@@ -80,11 +69,13 @@ export default function App() {
     };
   }, []);
 
-  useEffect(() => {
-    setSubmitted(statusOccurrences.Applied);
-    setInterview(statusOccurrences.Interview);
-    setDenied(statusOccurrences.Denied);
-  }, [statusOccurrences]);
+  // Designate occurences of user specific apps
+  const [userItemCount, setUserItemCount] = useState(0);
+  const [userStatusCounts, setUserStatusCounts] = useState({
+    Applied: 0,
+    Interview: 0,
+    Denied: 0,
+  });
 
   // Open, Close, and Redirect Modal Functions
 
@@ -223,6 +214,34 @@ export default function App() {
   };
 
   /////////////////////////////////////////////////////
+  // Update and display app counts
+  // Function to filter items created by the current user
+  const filterUserItems = () => {
+    const userItems = applications.filter(
+      (apps) => apps.owner === currentUser?._id
+    );
+    setUserItemCount(userItems.length);
+
+    // Initialize status counts
+    const statusCounts = { Applied: 0, Interview: 0, Denied: 0 };
+
+    // Count the items for each status
+    userItems.forEach((item) => {
+      statusCounts[item.status]++;
+    });
+
+    // Update the userStatusCounts state
+    setUserStatusCounts(statusCounts);
+  };
+
+  // Use useEffect to update counts when the component mounts or when the items change
+  useEffect(() => {
+    filterUserItems();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [applications]);
+
+  /////////////////////////////////////////////////////
+
   // Verify token
   useEffect(() => {
     verifyToken();
@@ -233,7 +252,7 @@ export default function App() {
       <div className="App">
         <BrowserRouter>
           <Navbar openModal={handleModalOpen} isLoggedIn={isLoggedIn} />
-          <Header submitted={submitted} interview={interview} denied={denied} />
+          <Header apps={userStatusCounts} />
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route
@@ -259,8 +278,7 @@ export default function App() {
               element={<p>Oops! You do not have access to this page</p>}
             />
           </Routes>
-
-          <footer></footer>
+          <Footer />
           {modalOpened === "new-job-app-modal-opened" && (
             <NewApplicationModal
               isOpen={modalOpened === "new-job-app-modal-opened"}

@@ -7,7 +7,7 @@
   display: flex;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 0 19px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .modal__container {
@@ -38,7 +38,7 @@
 }
 
 .modal__title {
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
   font-weight: 500;
   color: #fff;
@@ -47,7 +47,7 @@
 }
 
 .modal__form {
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -62,7 +62,7 @@
 
 .modal__submit {
   background-color: #000;
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;

@@ -2,20 +2,21 @@ import { useContext } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./Header.css";
 
-export default function Header({ submitted, interview, denied }) {
+export default function Header({ apps }) {
   const { isLoggedIn } = useContext(CurrentUserContext);
+  const { Applied, Interview, Denied } = apps;
   return (
     <>
       {isLoggedIn ? (
         <div className="header">
           <div className="header__counter">
-            Applications Submitted: {submitted ? submitted : 0}
+            Applications Submitted: {Applied ? Applied : 0}
           </div>
           <div className="header__counter">
-            Interviews Pending: {interview ? interview : 0}
+            Interviews Pending: {Interview ? Interview : 0}
           </div>
           <div className="header__counter">
-            Applications Denied: {denied ? denied : 0}
+            Applications Denied: {Denied ? Denied : 0}
           </div>
         </div>
       ) : (

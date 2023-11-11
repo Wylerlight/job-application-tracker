@@ -5,7 +5,10 @@
   min-height: 150px;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 24px;
+  gap: 5px;
 }
 
 .job__info-wrapper {
@@ -14,6 +17,16 @@
 
 .job-company__title {
   cursor: pointer;
+  font-size: 30px;
+}
+
+.job-position-alt {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 0px 5px 10px;
+  border-radius: 5px;
+  margin: 0;
+  overflow: scroll;
 }
 
 .job__buttons-wrapper {
