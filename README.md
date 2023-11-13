@@ -7,6 +7,7 @@
 ### Features:
 
 - 3 designated categories for job applications: Applied, Interview, Denied
+- Date Applied is set to the date you enter a "New Application" to your profile
 - Dedicated counter for each category on user's profile
 - Change profile information such as name or picture
 
@@ -21,3 +22,4 @@
 ### Features COMING SOON:
 
 - Notes : Write important notes about job application for future reference
+- Search and Filter : find specific jobs or filter based on dates applied
