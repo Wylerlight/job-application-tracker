@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   flex-direction: column;
-  height: 100px;
+  /* height: 100px; */
   background-color: #000;
   color: #fff;
   border-top: 3px solid #fff;
@@ -13,4 +13,10 @@
 .footer__direct {
   text-decoration: none;
   color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    font-size: 24px;
+  }
 }

@@ -2,9 +2,9 @@
   height: 900px;
 }
 .landing__wrapper {
-  width: 100%;
-  height: 900px;
-  position: absolute;
+  /* width: 100%; */
+  /* height: 900px; */
+  /* position: absolute; */
   display: flex;
   justify-content: center;
 }
@@ -20,7 +20,7 @@
   font-size: 40px;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 30%;
+  top: 50%;
   color: #fff;
   z-index: 99;
 }
@@ -232,5 +232,9 @@ svg {
 @media only screen and (max-width: 768px) {
   .landing__directions {
     font-size: 1.5em; /* Adjust font size for smaller screens */
+  }
+
+  .landing__title {
+    font-size: 3em;
   }
 }

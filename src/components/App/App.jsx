@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import "./App.css";
-import "../ModalWithForm/ModalWithForm.css";
+import './App.css';
+import '../ModalWithForm/ModalWithForm.css';
 
 /* Context Import */
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 /* Primary Components */
-import Header from "../Header/Header";
-import Navbar from "../Navbar/Navbar";
-import LandingPage from "../LandingPage/LandingPage";
-import Main from "../Main/Main";
-import Footer from "../Footer/Footer";
+import Header from '../Header/Header';
+import Navbar from '../Navbar/Navbar';
+import LandingPage from '../LandingPage/LandingPage';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
 /* Modal Forms */
-import NewApplicationModal from "../NewApplicationModal/NewApplicationModal";
-import RegisterModal from "../RegisterModal/RegisterModal";
-import LoginModal from "../LoginModal/LoginModal";
-import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import NewApplicationModal from '../NewApplicationModal/NewApplicationModal';
+import RegisterModal from '../RegisterModal/RegisterModal';
+import LoginModal from '../LoginModal/LoginModal';
+import EditProfileModal from '../EditProfileModal/EditProfileModal';
 
 /* Util Imports */
-import { signin, signup, checkToken, editProfileData } from "../../utils/auth";
+import { signin, signup, checkToken, editProfileData } from '../../utils/auth';
 import {
   getJobs,
   postJobs,
   deleteJobs,
   updateJobStatus,
-} from "../../utils/api";
-import ProtectedRoute from "../../utils/ProtectedRoute";
+} from '../../utils/api';
+import ProtectedRoute from '../../utils/ProtectedRoute';
 
 export default function App() {
   // React Hooks
-  const [modalOpened, setModalOpened] = useState("");
+  const [modalOpened, setModalOpened] = useState('');
 
   ////////
   const [applications, setApplications] = useState([]);
@@ -58,14 +58,14 @@ export default function App() {
 
   useEffect(() => {
     const handleEscClose = (evt) => {
-      if (evt.key === "Escape") {
+      if (evt.key === 'Escape') {
         closeModal();
       }
     };
-    window.addEventListener("keydown", handleEscClose);
+    window.addEventListener('keydown', handleEscClose);
 
     return () => {
-      window.removeEventListener("keydown", handleEscClose);
+      window.removeEventListener('keydown', handleEscClose);
     };
   }, []);
 
@@ -80,12 +80,12 @@ export default function App() {
   // Open, Close, and Redirect Modal Functions
 
   const closeModal = () => {
-    setModalOpened("");
+    setModalOpened('');
   };
 
   const handleCloseModal = (e) => {
     if (e.target === e.currentTarget) {
-      setModalOpened("");
+      setModalOpened('');
     }
   };
 
@@ -95,10 +95,10 @@ export default function App() {
 
   const handleRedirect = (e) => {
     if (e.target === e.currentTarget) {
-      if (modalOpened === "register-modal-opened") {
-        setModalOpened("login-modal-opened");
-      } else if (modalOpened === "login-modal-opened") {
-        setModalOpened("register-modal-opened");
+      if (modalOpened === 'register-modal-opened') {
+        setModalOpened('login-modal-opened');
+      } else if (modalOpened === 'login-modal-opened') {
+        setModalOpened('register-modal-opened');
       }
     }
   };
@@ -106,7 +106,7 @@ export default function App() {
   // Check token
 
   function verifyToken() {
-    const jwt = localStorage.getItem("jwt");
+    const jwt = localStorage.getItem('jwt');
 
     if (jwt) {
       checkToken(jwt)
@@ -187,7 +187,7 @@ export default function App() {
 
     signin({ email, password })
       .then((res) => {
-        localStorage.setItem("jwt", res.token);
+        localStorage.setItem('jwt', res.token);
         verifyToken();
       })
       .then(() => {
@@ -197,7 +197,7 @@ export default function App() {
   };
 
   const handleUserLogout = () => {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem('jwt');
     setCurrentUser({});
     setIsLoggedIn(false);
   };
@@ -279,32 +279,32 @@ export default function App() {
             />
           </Routes>
           <Footer />
-          {modalOpened === "new-job-app-modal-opened" && (
+          {modalOpened === 'new-job-app-modal-opened' && (
             <NewApplicationModal
-              isOpen={modalOpened === "new-job-app-modal-opened"}
+              isOpen={modalOpened === 'new-job-app-modal-opened'}
               addNewJobApp={handleSubmitNewApplication}
               closeModal={handleCloseModal}
             />
           )}
-          {modalOpened === "register-modal-opened" && (
+          {modalOpened === 'register-modal-opened' && (
             <RegisterModal
-              isOpen={modalOpened === "register-modal-opened"}
+              isOpen={modalOpened === 'register-modal-opened'}
               onCloseModal={handleCloseModal}
               onRedirect={handleRedirect}
               userRegister={handleUserRegister}
             />
           )}
-          {modalOpened === "login-modal-opened" && (
+          {modalOpened === 'login-modal-opened' && (
             <LoginModal
-              isOpen={modalOpened === "login-modal-opened"}
+              isOpen={modalOpened === 'login-modal-opened'}
               onCloseModal={handleCloseModal}
               onRedirect={handleRedirect}
               userLogin={handleUserLogin}
             />
           )}
-          {modalOpened === "edit-profile-modal-opened" && (
+          {modalOpened === 'edit-profile-modal-opened' && (
             <EditProfileModal
-              isOpen={modalOpened === "edit-profile-modal-opened"}
+              isOpen={modalOpened === 'edit-profile-modal-opened'}
               onCloseModal={handleCloseModal}
               submitEditProfileData={handleUserProfileData}
             />
