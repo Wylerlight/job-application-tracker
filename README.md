@@ -2,7 +2,7 @@
 
 ### Overview:
 
-- An web and mobile application designed to help keep track of your job applications.
+- A web and mobile application designed to help keep track of your job applications.
 
 ### Features:
 
