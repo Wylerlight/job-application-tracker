@@ -5,9 +5,14 @@ const RegisterModal = ({ isOpen, onCloseModal, onRedirect, userRegister }) => {
   const [inputValues, setInputValues] = useState({});
 
   const handleInputChange = (e) => {
+    console.log(e.target);
     const { name, value } = e.target;
 
-    setInputValues({ ...inputValues, [name]: value });
+    // setInputValues({ ...inputValues, [name]: value });
+  };
+  const handleFileChange = (e) => {
+    console.log(e.target.files[0]);
+    const file = e.target.files[0];
   };
 
   const handleSubmit = (e) => {

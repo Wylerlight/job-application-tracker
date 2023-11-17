@@ -6,3 +6,11 @@
   justify-content: space-around;
   border-left: 3px solid #fff;
 }
+
+@media screen and (max-width: 800px) {
+  .application__section {
+    border: none;
+    width: auto;
+    padding: 0px 20px;
+  }
+}

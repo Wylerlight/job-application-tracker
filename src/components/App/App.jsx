@@ -20,7 +20,7 @@ import NewApplicationModal from '../NewApplicationModal/NewApplicationModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import LoginModal from '../LoginModal/LoginModal';
 import EditProfileModal from '../EditProfileModal/EditProfileModal';
-
+import DeleteConfirmationModal from '../DeleteConfirmationModal/DeleteConfirmationModal';
 /* Util Imports */
 import { signin, signup, checkToken, editProfileData } from '../../utils/auth';
 import {
@@ -37,6 +37,7 @@ export default function App() {
 
   ////////
   const [applications, setApplications] = useState([]);
+  const [selectedApp, setSelectedApp] = useState({});
   ////////
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -121,7 +122,9 @@ export default function App() {
     }
   }
 
-  // Submit new application/job information
+  /* -------------------------------------------------------------------------- */
+  /*                   Submit new application/job information                   */
+  /* -------------------------------------------------------------------------- */
 
   const handleSubmitNewApplication = (values) => {
     postJobs(values)
@@ -143,7 +146,7 @@ export default function App() {
           return jobs._id !== jobApp;
         });
         setApplications(newApplicationList);
-        // closeModal();
+        closeModal();
       })
       .catch((err) => {
         console.log(err);
@@ -234,6 +237,10 @@ export default function App() {
     setUserStatusCounts(statusCounts);
   };
 
+  const handleSelectedCard = (app) => {
+    setSelectedApp(app);
+  };
+
   // Use useEffect to update counts when the component mounts or when the items change
   useEffect(() => {
     filterUserItems();
@@ -266,7 +273,8 @@ export default function App() {
                     isLoggedIn={isLoggedIn}
                     handleUserLogout={handleUserLogout}
                     handleUpdateJobAppStatus={handleUpdateJobAppStatus}
-                    handleDeleteJobApplication={handleDeleteJobApplication}
+                    deleteConfirmModal={handleModalOpen}
+                    handleSelectedCard={handleSelectedCard}
                     isLoading={isLoading}
                   />
                 </ProtectedRoute>
@@ -279,6 +287,15 @@ export default function App() {
             />
           </Routes>
           <Footer />
+
+          {modalOpened === 'confirmation-opened' && (
+            <DeleteConfirmationModal
+              onClose={handleCloseModal}
+              selectedApp={selectedApp}
+              handleDeleteJobApplication={handleDeleteJobApplication}
+            />
+          )}
+
           {modalOpened === 'new-job-app-modal-opened' && (
             <NewApplicationModal
               isOpen={modalOpened === 'new-job-app-modal-opened'}

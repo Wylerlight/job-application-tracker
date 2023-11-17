@@ -4,7 +4,6 @@
   overflow: auto;
   background-color: rgb(225, 225, 225);
   width: 500px;
-  min-width: 290px;
   max-height: 800px;
   min-height: 200px;
   border-radius: 10px;

@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import React, { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-import "./Main.css";
-import Profile from "../Profile/Profile";
-import ApplicationSection from "../ApplicationSection/ApplicationSection";
-import Preloader from "../Preloader/Preloader";
+import './Main.css';
+import Profile from '../Profile/Profile';
+import ApplicationSection from '../ApplicationSection/ApplicationSection';
+import Preloader from '../Preloader/Preloader';
 
 const Main = ({
   openModal,
@@ -12,7 +12,8 @@ const Main = ({
   isLoggedIn,
   handleUserLogout,
   handleUpdateJobAppStatus,
-  handleDeleteJobApplication,
+  deleteConfirmModal,
+  handleSelectedCard,
   isLoading,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
@@ -30,7 +31,8 @@ const Main = ({
         currentUser={currentUser}
         isLoggedIn={isLoggedIn}
         handleUpdateJobAppStatus={handleUpdateJobAppStatus}
-        handleDeleteJobApplication={handleDeleteJobApplication}
+        deleteConfirmModal={deleteConfirmModal}
+        handleSelectedCard={handleSelectedCard}
       />
     </section>
   );

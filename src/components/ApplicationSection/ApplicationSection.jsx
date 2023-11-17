@@ -1,16 +1,17 @@
-import React from "react";
-import "./ApplicationSection.css";
+import React from 'react';
+import './ApplicationSection.css';
 
-import Table from "../Table/Table";
+import Table from '../Table/Table';
 
 export default function ApplicationSection({
   applications,
   currentUser,
   isLoggedIn,
   handleUpdateJobAppStatus,
-  handleDeleteJobApplication,
+  deleteConfirmModal,
+  handleSelectedCard,
 }) {
-  const statusArray = ["Applied", "Denied", "Interview"];
+  const statusArray = ['Applied', 'Denied', 'Interview'];
   return (
     <section className="application__section">
       {statusArray.map((category) => {
@@ -22,7 +23,8 @@ export default function ApplicationSection({
                 (item) => item.status === category
               )}
               moveItem={handleUpdateJobAppStatus}
-              deleteApp={handleDeleteJobApplication}
+              deleteConfirmModal={deleteConfirmModal}
+              handleSelectedCard={handleSelectedCard}
             />
           </React.Fragment>
         );

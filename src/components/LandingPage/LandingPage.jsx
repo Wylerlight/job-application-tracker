@@ -1,8 +1,8 @@
-import "./LandingPage.css";
+import './LandingPage.css';
 
 export default function LandingPage() {
-  document.addEventListener("DOMContentLoaded", () => {
-    const interBubble = document.querySelector(".interactive");
+  document.addEventListener('DOMContentLoaded', () => {
+    const interBubble = document.querySelector('.interactive');
     let curX = 0;
     let curY = 0;
     let tgX = 0;
@@ -19,7 +19,7 @@ export default function LandingPage() {
       });
     }
 
-    window.addEventListener("mousemove", (event) => {
+    window.addEventListener('mousemove', (event) => {
       tgX = event.clientX;
       tgY = event.clientY;
     });
@@ -29,7 +29,6 @@ export default function LandingPage() {
   return (
     <div className="landing__parent">
       <div className="landing__wrapper">
-        <div className="landing"></div>
         <section className="landing__directions">
           <h2 className="landing__title">WELCOME TO AppTrack</h2>
           <p className="landing__desc">

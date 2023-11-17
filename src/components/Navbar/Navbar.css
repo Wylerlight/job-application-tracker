@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   background-color: #000;
+  flex-wrap: wrap;
 }
 
 .navbar__logo {
@@ -50,6 +51,13 @@
 /* -------------------------------------------------------------------------- */
 /*                         Sign in and Log In Section                         */
 /* -------------------------------------------------------------------------- */
+
+.nav-wrapper {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav {
   font-family: 'Familjen Grotesk', sans-serif;
   font-style: normal;
@@ -70,7 +78,6 @@
 .avatar__picture {
   border-radius: 20px;
   width: 150px;
-  height: 150px;
   display: flex;
   justify-content: center;
 
@@ -97,17 +104,44 @@
   box-shadow: 0px 0px 10px 1px #fff;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1100px) {
   .navbar {
-    flex-wrap: wrap;
-    flex-direction: column;
     align-items: center;
+
+    flex-direction: column;
   }
 
   .navbar__links-wrapper {
     margin: 0;
   }
+
+  .avatar__picture {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .navbar__logo {
     width: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    padding-bottom: 20px;
+  }
+  .navbar__links-wrapper {
+    flex-direction: column-reverse;
+  }
+  .avatar__nav {
+    margin: 0;
+  }
+
+  .avatar__name {
+    margin: 0;
+  }
+
+  .nav-wrapper {
+    width: auto;
   }
 }

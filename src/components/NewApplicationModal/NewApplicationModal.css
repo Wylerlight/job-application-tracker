@@ -10,20 +10,11 @@
   border: none;
   border-bottom: 1px solid #000;
   width: 100%;
-  font-family: "Familjen Grotesk", sans-serif;
+  font-family: 'Familjen Grotesk', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   color: #000;
   margin-top: 8px;
-}
-
-#modal__input-name {
-}
-
-#modal__input-position {
-}
-
-#modal__input-jobId {
 }
