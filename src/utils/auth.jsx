@@ -1,9 +1,10 @@
 import { checkResponse } from '../constants/checkResponse';
 
-const baseUrl =
+/* const baseUrl =
   process.env.NODE_ENV === 'production'
     ? 'https://api.wtwr.zmurk.com'
     : 'http://localhost:3001';
+ */
 
 const newBaseUrl = 'http://localhost:3001';
 function getToken() {
@@ -11,14 +12,16 @@ function getToken() {
 }
 
 function signup(data) {
-  const { name, avatar, email, password } = data;
+  const formData = new FormData();
+  formData.append('name', data.name);
+  formData.append('profilePicture', data.profilePicture);
+  formData.append('email', data.email);
+  formData.append('password', data.password);
 
   return fetch(`${newBaseUrl}/signup`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name, avatar, email, password }),
+
+    body: formData,
   }).then(checkResponse);
 }
 
@@ -35,16 +38,16 @@ function signin(data) {
 }
 
 function editProfileData(data) {
-  const { avatar, name } = data;
+  const editFormData = new FormData();
+  editFormData.append('name', data.name);
+  editFormData.append('profilePicture', data.profilePicture);
 
   return fetch(`${newBaseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`,
     },
-    body: JSON.stringify({ avatar, name }),
+    body: editFormData,
   })
     .then(checkResponse)
     .catch((e) => console.log(e));

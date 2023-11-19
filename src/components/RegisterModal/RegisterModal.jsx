@@ -5,14 +5,12 @@ const RegisterModal = ({ isOpen, onCloseModal, onRedirect, userRegister }) => {
   const [inputValues, setInputValues] = useState({});
 
   const handleInputChange = (e) => {
-    console.log(e.target);
     const { name, value } = e.target;
-
-    // setInputValues({ ...inputValues, [name]: value });
+    setInputValues({ ...inputValues, [name]: value });
   };
   const handleFileChange = (e) => {
-    console.log(e.target.files[0]);
     const file = e.target.files[0];
+    setInputValues({ ...inputValues, profilePicture: file });
   };
 
   const handleSubmit = (e) => {
@@ -82,15 +80,12 @@ const RegisterModal = ({ isOpen, onCloseModal, onRedirect, userRegister }) => {
       <span className=""></span>
       {/* Image URL Input */}
       <div className="modal__input">
-        <label htmlFor="modal__input-register-url">Avatar URL</label>
+        <label htmlFor="modal__input-register-url">Profile Image Upload</label>
         <input
-          id="modal__input-register-url"
-          className="modal__input-form"
-          name="avatar"
-          type="url"
-          placeholder="Avatar URL"
-          value={inputValues.avatar || ''}
-          onChange={handleInputChange}
+          name="profilePicture"
+          type="file"
+          accept="image/jpeg, image/png, image/jpg"
+          onChange={handleFileChange}
         />
       </div>
       <span className=""></span>

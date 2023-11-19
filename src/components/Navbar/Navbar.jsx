@@ -28,10 +28,10 @@ export default function Navbar({ openModal }) {
             </p>
 
             <Link to="/profile">
-              {currentUser.avatar ? (
+              {currentUser.profilePicture ? (
                 <img
                   alt="avatar"
-                  src={currentUser.avatar}
+                  src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
                   className="avatar__picture"
                 />
               ) : (
