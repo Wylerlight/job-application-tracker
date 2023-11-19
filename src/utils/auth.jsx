@@ -1,12 +1,11 @@
 import { checkResponse } from '../constants/checkResponse';
 
-/* const baseUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://api.wtwr.zmurk.com'
+const baseUrl =
+  import.meta.env.NODE_ENV === 'production'
+    ? 'https://apptrack.pro'
     : 'http://localhost:3001';
- */
 
-const newBaseUrl = 'http://localhost:3001';
+// const newBaseUrl = 'http://localhost:3001';
 function getToken() {
   return localStorage.getItem('jwt');
 }
@@ -18,7 +17,7 @@ function signup(data) {
   formData.append('email', data.email);
   formData.append('password', data.password);
 
-  return fetch(`${newBaseUrl}/signup`, {
+  return fetch(`${baseUrl}/signup`, {
     method: 'POST',
 
     body: formData,
@@ -28,7 +27,7 @@ function signup(data) {
 function signin(data) {
   const { email, password } = data;
 
-  return fetch(`${newBaseUrl}/signin`, {
+  return fetch(`${baseUrl}/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +41,7 @@ function editProfileData(data) {
   editFormData.append('name', data.name);
   editFormData.append('profilePicture', data.profilePicture);
 
-  return fetch(`${newBaseUrl}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -55,7 +54,7 @@ function editProfileData(data) {
 
 //get Token
 function checkToken(token) {
-  return fetch(`${newBaseUrl}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: 'GET',
     headers: {
       Accept: 'application/json',

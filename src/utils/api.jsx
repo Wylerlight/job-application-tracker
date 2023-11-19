@@ -1,22 +1,22 @@
-import { checkResponse } from "../constants/checkResponse";
-/* 
+import { checkResponse } from '../constants/checkResponse';
+
 const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://api.wtwr.zmurk.com"
-    : "http://localhost:3001";
- */
-const newBaseUrl = "http://localhost:3001";
+  import.meta.env.NODE_ENV === 'production'
+    ? 'https://apptrack.pro'
+    : 'http://localhost:3001';
+
+// const newBaseUrl = 'http://localhost:3001';
 
 function getToken() {
-  return localStorage.getItem("jwt");
+  return localStorage.getItem('jwt');
 }
 
 // GET Jobs
 export function getJobs() {
-  return fetch(`${newBaseUrl}/jobs`, {
-    method: "GET",
+  return fetch(`${baseUrl}/jobs`, {
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   }).then(checkResponse);
 }
@@ -25,10 +25,10 @@ export function getJobs() {
 export function postJobs(data) {
   const { name, position, jobId, date, status } = data;
 
-  return fetch(`${newBaseUrl}/jobs`, {
-    method: "POST",
+  return fetch(`${baseUrl}/jobs`, {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`,
     },
     body: JSON.stringify(data),
@@ -37,10 +37,10 @@ export function postJobs(data) {
 
 // DELETE Jobs
 export function deleteJobs(id) {
-  return fetch(`${newBaseUrl}/jobs/${id}`, {
-    method: "DELETE",
+  return fetch(`${baseUrl}/jobs/${id}`, {
+    method: 'DELETE',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`,
     },
   }).then(checkResponse);
@@ -49,10 +49,10 @@ export function deleteJobs(id) {
 export function updateJobStatus(app, element, id) {
   const { name, position, jobId } = app;
 
-  return fetch(`${newBaseUrl}/jobs/${id}`, {
-    method: "PATCH",
+  return fetch(`${baseUrl}/jobs/${id}`, {
+    method: 'PATCH',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`,
     },
     body: JSON.stringify({ name, position, jobId, status: element }),
