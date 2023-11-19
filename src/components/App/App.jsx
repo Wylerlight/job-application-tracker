@@ -41,7 +41,12 @@ export default function App() {
   ////////
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    profilePicture: {},
+    _id: '',
+    email: '',
+    name: '',
+  });
   const [isLoading, setIsLoading] = useState(true);
 
   /////////////////////////////////////////////////////
@@ -170,7 +175,6 @@ export default function App() {
   /*                                User handlers                               */
   /* -------------------------------------------------------------------------- */
   // Sending user info to Database
-
   const handleUserRegister = (values) => {
     signup(values)
       .then((res) => {
@@ -190,6 +194,7 @@ export default function App() {
 
     signin({ email, password })
       .then((res) => {
+        console.log(res);
         localStorage.setItem('jwt', res.token);
         verifyToken();
       })
@@ -248,7 +253,6 @@ export default function App() {
   }, [applications]);
 
   /////////////////////////////////////////////////////
-
   // Verify token
   useEffect(() => {
     verifyToken();

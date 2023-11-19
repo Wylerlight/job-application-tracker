@@ -5,10 +5,10 @@ const Profile = ({ openModal, handleUserLogout, currentUser }) => {
   return (
     <section className="profile">
       <div className="sidebar__avatar-wrapper">
-        {currentUser.avatar ? (
+        {currentUser.profilePicture ? (
           <img
             alt="sidebar__avatar"
-            src={currentUser.avatar}
+            src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
             className="sidebar__avatar-picture"
           />
         ) : (

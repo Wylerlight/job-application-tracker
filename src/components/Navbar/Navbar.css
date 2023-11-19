@@ -78,6 +78,8 @@
 .avatar__picture {
   border-radius: 20px;
   width: 150px;
+  max-height: 150px;
+  object-fit: cover;
   display: flex;
   justify-content: center;
 

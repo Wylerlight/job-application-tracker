@@ -5,10 +5,15 @@ import ModalWithForm from '../ModalWithForm/ModalWithForm';
 const EditProfileModal = ({ isOpen, onCloseModal, submitEditProfileData }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const [inputValues, setInputValues] = useState(currentUser);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     setInputValues({ ...inputValues, [name]: value });
+  };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setInputValues({ ...inputValues, profilePicture: file });
   };
 
   const handleSubmit = (e) => {
@@ -44,16 +49,12 @@ const EditProfileModal = ({ isOpen, onCloseModal, submitEditProfileData }) => {
       <span className=""></span>
       {/* Avatar input */}
       <div className="modal__input">
-        <label htmlFor="modal__input-edit-avatar">Avatar</label>
+        <label htmlFor="modal__input-edit-avatar">Profile Image</label>
         <input
-          id="modal__input-edit-avatar"
-          className="modal__input-form"
-          name="avatar"
-          type="url"
-          placeholder="Avatar URL"
-          value={inputValues.avatar}
-          onChange={handleInputChange}
-          required
+          name="profilePicture"
+          type="file"
+          accept="image/jpeg, image/png, image/jpg"
+          onChange={handleFileChange}
         />
       </div>
       <span className=""></span>

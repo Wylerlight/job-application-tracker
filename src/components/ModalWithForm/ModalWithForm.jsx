@@ -16,7 +16,12 @@ export default function ModalWithForm({
       <div className="modal__container ">
         <button className="modal__exit" type="button" onClick={onClose} />
         <h2 className="modal__title">{title}</h2>
-        <form className="modal__form " id="" onSubmit={onSubmit}>
+        <form
+          className="modal__form "
+          id=""
+          onSubmit={onSubmit}
+          encType="multipart/form-data"
+        >
           <fieldset className="modal__fieldset">{children}</fieldset>
           <span className="modal__error"></span>
           <button type="submit" className="modal__submit">
