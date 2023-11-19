@@ -51,6 +51,7 @@ const EditProfileModal = ({ isOpen, onCloseModal, submitEditProfileData }) => {
       <div className="modal__input">
         <label htmlFor="modal__input-edit-avatar">Profile Image</label>
         <input
+          id="modal__input-edit-avatar"
           name="profilePicture"
           type="file"
           accept="image/jpeg, image/png, image/jpg"

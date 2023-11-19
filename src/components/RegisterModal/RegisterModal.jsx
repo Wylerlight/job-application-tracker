@@ -82,6 +82,7 @@ const RegisterModal = ({ isOpen, onCloseModal, onRedirect, userRegister }) => {
       <div className="modal__input">
         <label htmlFor="modal__input-register-url">Profile Image Upload</label>
         <input
+          id="modal__input-register-url"
           name="profilePicture"
           type="file"
           accept="image/jpeg, image/png, image/jpg"
