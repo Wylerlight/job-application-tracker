@@ -31,7 +31,8 @@ export default function Navbar({ openModal }) {
               {currentUser.profilePicture ? (
                 <img
                   alt="avatar"
-                  src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
+                  src={`https://api.apptrack.pro/uploads/${currentUser.profilePicture.filename}`}
+                  // src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
                   className="avatar__picture"
                 />
               ) : (

@@ -1,7 +1,7 @@
 import { checkResponse } from '../constants/checkResponse';
 
 const baseUrl =
-  import.meta.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production'
     ? 'https://api.apptrack.pro'
     : 'http://localhost:3001';
 
@@ -37,16 +37,24 @@ function signin(data) {
 }
 
 function editProfileData(data) {
-  const editFormData = new FormData();
-  editFormData.append('name', data.name);
-  editFormData.append('profilePicture', data.profilePicture);
+  const formData = new FormData();
+  formData.append('name', data.name);
+
+  // Check if profilePicture is a file or an object
+  if (data.profilePicture instanceof File) {
+    formData.append('profilePicture', data.profilePicture);
+  } else {
+    // Set a default value for emptyFile or skip appending if needed
+    const emptyFile = new File([], 'emptyFile');
+    formData.append('profilePicture', emptyFile);
+  }
 
   return fetch(`${baseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
       Authorization: `Bearer ${getToken()}`,
     },
-    body: editFormData,
+    body: formData,
   })
     .then(checkResponse)
     .catch((e) => console.log(e));

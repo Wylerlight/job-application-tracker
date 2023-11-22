@@ -194,7 +194,6 @@ export default function App() {
 
     signin({ email, password })
       .then((res) => {
-        console.log(res);
         localStorage.setItem('jwt', res.token);
         verifyToken();
       })

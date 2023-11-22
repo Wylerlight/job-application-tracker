@@ -1,7 +1,7 @@
 import { checkResponse } from '../constants/checkResponse';
 
 const baseUrl =
-  import.meta.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === 'production'
     ? 'https://api.apptrack.pro'
     : 'http://localhost:3001';
 

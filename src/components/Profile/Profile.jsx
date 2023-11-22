@@ -8,7 +8,8 @@ const Profile = ({ openModal, handleUserLogout, currentUser }) => {
         {currentUser.profilePicture ? (
           <img
             alt="sidebar__avatar"
-            src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
+            src={`https://api.apptrack.pro/uploads/${currentUser.profilePicture.filename}`}
+            // src={`http://localhost:3001/uploads/${currentUser.profilePicture.filename}`}
             className="sidebar__avatar-picture"
           />
         ) : (
