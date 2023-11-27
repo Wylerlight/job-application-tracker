@@ -1,0 +1,72 @@
+.notes-modal {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  width: 670px;
+  height: 400px;
+  margin: auto;
+  border-radius: 20px;
+  position: relative;
+
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  background-color: #000;
+  border: 4px solid #59a8a2;
+}
+
+.notes-button_exit {
+  background-image: url(../../assets/cross-square-svgrepo-com.svg);
+  background-size: contain;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: solid 4px #59a8a2;
+}
+
+.notes-button_exit:hover {
+  cursor: pointer;
+}
+
+.notes-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+}
+
+.notes-title {
+  margin: 5px 0px;
+}
+
+.notes-text_area {
+  width: 90%;
+  height: 60%;
+  resize: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.notes-button {
+  border: none;
+  margin: 10px 0px;
+  font-family: 'Familjen Grotesk', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  background-color: #000;
+}
+
+.notes-button:hover {
+  cursor: pointer;
+}

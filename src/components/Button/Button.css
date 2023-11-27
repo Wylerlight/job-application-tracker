@@ -17,7 +17,6 @@
 }
 
 .job-company__title {
-  cursor: pointer;
   font-size: 30px;
   overflow-x: scroll;
   -ms-overflow-style: none; /* IE and Edge */
@@ -26,6 +25,10 @@
 
 .job-company__title::-webkit-scrollbar {
   display: none;
+}
+
+.job__line {
+  margin: 24px 0px;
 }
 
 .job-position-alt {

@@ -28,8 +28,10 @@ import {
   postJobs,
   deleteJobs,
   updateJobStatus,
+  updateJobNotes,
 } from '../../utils/api';
 import ProtectedRoute from '../../utils/ProtectedRoute';
+import Notes from '../Notes/Notes';
 
 export default function App() {
   // React Hooks
@@ -38,6 +40,7 @@ export default function App() {
   ////////
   const [applications, setApplications] = useState([]);
   const [selectedApp, setSelectedApp] = useState({});
+
   ////////
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -171,6 +174,19 @@ export default function App() {
       });
   };
 
+  const handleUpdateJobNotes = (note, id) => {
+    updateJobNotes(note, id)
+      .then(() =>
+        getJobs().then((data) => {
+          setApplications(data.data);
+          closeModal();
+        })
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   /* -------------------------------------------------------------------------- */
   /*                                User handlers                               */
   /* -------------------------------------------------------------------------- */
@@ -276,7 +292,6 @@ export default function App() {
                     isLoggedIn={isLoggedIn}
                     handleUserLogout={handleUserLogout}
                     handleUpdateJobAppStatus={handleUpdateJobAppStatus}
-                    deleteConfirmModal={handleModalOpen}
                     handleSelectedCard={handleSelectedCard}
                     isLoading={isLoading}
                   />
@@ -327,6 +342,13 @@ export default function App() {
               isOpen={modalOpened === 'edit-profile-modal-opened'}
               onCloseModal={handleCloseModal}
               submitEditProfileData={handleUserProfileData}
+            />
+          )}
+          {modalOpened === 'notes-opened' && (
+            <Notes
+              onCloseModal={handleCloseModal}
+              submitEditNotes={handleUpdateJobNotes}
+              selectedApp={selectedApp}
             />
           )}
         </BrowserRouter>

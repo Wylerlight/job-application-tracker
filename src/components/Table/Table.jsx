@@ -7,7 +7,7 @@ const Table = ({
   category,
   applications,
   moveItem,
-  deleteConfirmModal,
+  openModal,
   handleSelectedCard,
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
@@ -17,6 +17,7 @@ const Table = ({
     <JobCard title={title}>
       {applications.map((apps) => {
         const isOwn = apps.owner === currentUser?._id;
+
         return (
           <React.Fragment key={apps._id}>
             {isOwn && (
@@ -24,7 +25,7 @@ const Table = ({
                 key={apps.id}
                 apps={apps}
                 moveItem={moveItem}
-                deleteConfirmModal={deleteConfirmModal}
+                openModal={openModal}
                 handleSelectedCard={handleSelectedCard}
               />
             )}

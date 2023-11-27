@@ -1,15 +1,15 @@
-import { useState } from "react";
-import "./NewApplicationModal.css";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useState } from 'react';
+import './NewApplicationModal.css';
+import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
 export default function NewApplicationModal({
   isOpen,
   addNewJobApp,
   closeModal,
 }) {
-  const [name, setName] = useState("");
-  const [position, setPosition] = useState("");
-  const [jobId, setJobId] = useState("");
+  const [name, setName] = useState('');
+  const [position, setPosition] = useState('');
+  const [jobId, setJobId] = useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -24,7 +24,7 @@ export default function NewApplicationModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewJobApp({ name, position, jobId, status: "Applied" });
+    addNewJobApp({ name, position, jobId, status: 'Applied', notes: '' });
   };
 
   return (

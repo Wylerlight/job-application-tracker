@@ -8,7 +8,7 @@ export default function ApplicationSection({
   currentUser,
   isLoggedIn,
   handleUpdateJobAppStatus,
-  deleteConfirmModal,
+  openModal,
   handleSelectedCard,
 }) {
   const statusArray = ['Applied', 'Denied', 'Interview'];
@@ -23,7 +23,7 @@ export default function ApplicationSection({
                 (item) => item.status === category
               )}
               moveItem={handleUpdateJobAppStatus}
-              deleteConfirmModal={deleteConfirmModal}
+              openModal={openModal}
               handleSelectedCard={handleSelectedCard}
             />
           </React.Fragment>

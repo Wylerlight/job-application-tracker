@@ -1,22 +1,17 @@
 import React from 'react';
 import Item from '../Items/Item';
 
-const ItemWrapper = ({
-  apps,
-  moveItem,
-  deleteConfirmModal,
-  handleSelectedCard,
-}) => {
-  const { _id, name, position, jobId, date } = apps;
+const ItemWrapper = ({ apps, moveItem, openModal, handleSelectedCard }) => {
+  const { _id, name, position, jobId, date, notes } = apps;
 
   let newDate = new Date(date).toLocaleDateString();
-  const newAppsProp = { _id, name, position, jobId, newDate };
+  const newAppsProp = { _id, name, position, jobId, newDate, notes };
 
   return (
     <Item
       apps={newAppsProp}
       moveItem={moveItem}
-      deleteConfirmModal={deleteConfirmModal}
+      openModal={openModal}
       handleSelectedCard={handleSelectedCard}
     />
   );

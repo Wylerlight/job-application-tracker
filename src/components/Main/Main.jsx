@@ -12,7 +12,6 @@ const Main = ({
   isLoggedIn,
   handleUserLogout,
   handleUpdateJobAppStatus,
-  deleteConfirmModal,
   handleSelectedCard,
   isLoading,
 }) => {
@@ -31,7 +30,7 @@ const Main = ({
         currentUser={currentUser}
         isLoggedIn={isLoggedIn}
         handleUpdateJobAppStatus={handleUpdateJobAppStatus}
-        deleteConfirmModal={deleteConfirmModal}
+        openModal={openModal}
         handleSelectedCard={handleSelectedCard}
       />
     </section>

@@ -46,15 +46,29 @@ export function deleteJobs(id) {
   }).then(checkResponse);
 }
 
+// UPDATE Job Status
+
 export function updateJobStatus(app, element, id) {
   const { name, position, jobId } = app;
 
-  return fetch(`${baseUrl}/jobs/${id}`, {
+  return fetch(`${baseUrl}/jobs/${id}/update-status`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${getToken()}`,
     },
     body: JSON.stringify({ name, position, jobId, status: element }),
+  }).then(checkResponse);
+}
+
+//UPDATE Job Notes
+export function updateJobNotes(note, id) {
+  return fetch(`${baseUrl}/jobs/${id}/update-note`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify(note),
   }).then(checkResponse);
 }
